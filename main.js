@@ -35,10 +35,14 @@ function handleSymbols(symbol){
   switch (symbol){
     case "AC":
       buffer = "0";
-      screenElement.textContent = buffer;
       runningTotal = 0;
       break;
     case "↼":
+      // if (buffer.length === 1){
+      //   buffer = "0";
+      // } else {
+      //   buffer = buffer.substring(0, buffer.length - 1);
+      // }
       break;
     case "+/-":
       break;
@@ -46,19 +50,61 @@ function handleSymbols(symbol){
     case "-":
     case "×":
     case "÷":
-      handleMath();
-    case "=":
+      handleMath(symbol);
       break;
-
+    case "=":
+      // if (previousOperator === null){
+      //   return;
+      // }
+      // operate(parseInt(buffer));
+      // previousOperator = null;
+      // buffer = runningTotal;
+      // //runningTotal = 0;
+      break;
   }
 }; 
 
-function handleMath(){
+function handleMath(symbol){
+  
+  if (buffer === "0"){
+    return;
+  };
+  console.log("symbol", symbol);
 
+  const bufferInt = parseInt(buffer);
+
+  if (runningTotal === 0){
+    runningTotal = bufferInt;
+  } else {
+    operate(bufferInt);
+  }
+  
+  previousOperator = symbol;
+  console.log("HandleMath runningTotal:", runningTotal)
+  
+
+  buffer = "0";
+};
+
+
+
+function operate(bufferInt) {
+  switch (previousOperator){
+    case "+":
+      runningTotal += bufferInt;
+      break;
+    case "-":
+      runningTotal -= bufferInt;
+      break;
+    case "×":
+      runningTotal *= bufferInt;
+      break;
+    case "÷":
+      runningTotal /= bufferInt;
+      break;
+  }
+  console.log("Operate runningTotal:", runningTotal)
 }
-
-
-
 
 
 

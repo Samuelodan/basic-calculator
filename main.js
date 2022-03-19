@@ -19,6 +19,7 @@ function buttonClick(value){
   } else {
     handleNumbers(value);
   }
+  screenElement.textContent = buffer;
 }
 
 function handleNumbers(numberString){
@@ -28,7 +29,6 @@ function handleNumbers(numberString){
     buffer += numberString;
   }
   console.log("buffer :", buffer);
-  screenElement.textContent = buffer;
 }
 
 function handleSymbols(symbol){
@@ -40,7 +40,15 @@ function handleSymbols(symbol){
       break;
     case "↼":
       break;
-
+    case "+/-":
+      break;
+    case "+":
+    case "-":
+    case "×":
+    case "÷":
+      handleMath();
+    case "=":
+      break;
 
   }
 }; 

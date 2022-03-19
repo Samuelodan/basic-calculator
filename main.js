@@ -7,7 +7,6 @@ let previousOperator = null;
 function init(){
   const buttons = document.querySelector(".buttons");
   buttons.addEventListener("click", (e) => {
-    console.log("works")
     const value = e.target.textContent;
     buttonClick(value);
   })
@@ -23,8 +22,13 @@ function buttonClick(value){
   }
 }
 
-function handleNumbers(value){
-  buffer += value;
+function handleNumbers(valueString){
+  if (buffer === "0"){
+    buffer = valueString;
+  } else {
+    buffer += valueString;
+  }
+  console.log("buffer :", buffer);
   screenElement.textContent = buffer;
 }
 

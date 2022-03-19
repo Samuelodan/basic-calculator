@@ -53,13 +53,13 @@ function handleSymbols(symbol){
       handleMath(symbol);
       break;
     case "=":
-      // if (previousOperator === null){
-      //   return;
-      // }
-      // operate(parseInt(buffer));
-      // previousOperator = null;
-      // buffer = runningTotal;
-      // //runningTotal = 0;
+      if (previousOperator === null){
+        return;
+      }
+      operate(parseInt(buffer));
+      previousOperator = null;
+      //buffer = runningTotal;
+      //runningTotal = 0;
       break;
   }
 }; 

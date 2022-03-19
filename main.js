@@ -10,28 +10,44 @@ function init(){
     const value = e.target.textContent;
     buttonClick(value);
   })
-
-}
+};
 init();
 
 function buttonClick(value){
   if (isNaN(value)){
-    handleSymbol(value);
+    handleSymbols(value);
   } else {
     handleNumbers(value);
   }
 }
 
-function handleNumbers(valueString){
+function handleNumbers(numberString){
   if (buffer === "0"){
-    buffer = valueString;
+    buffer = numberString;
   } else {
-    buffer += valueString;
+    buffer += numberString;
   }
   console.log("buffer :", buffer);
   screenElement.textContent = buffer;
 }
 
+function handleSymbols(symbol){
+  switch (symbol){
+    case "AC":
+      buffer = "0";
+      screenElement.textContent = buffer;
+      runningTotal = 0;
+      break;
+    case "↼":
+      break;
+
+
+  }
+}; 
+
+function handleMath(){
+
+}
 
 
 

@@ -75,7 +75,7 @@ function handleSymbols(symbol){
       }
       operate(parseFloat(buffer));
       previousOperator = null;
-      buffer = runningTotal;
+      buffer = Math.round(runningTotal * 100) / 100;;
       screenElement.textContent = buffer;
       buffer = "0";
       runningTotal = 0;
@@ -101,7 +101,7 @@ function handleMath(symbol){
   previousOperator = symbol;
   console.log("HandleMath runningTotal:", runningTotal)
   
-  screenElement.textContent = runningTotal;
+  screenElement.textContent = Math.round(runningTotal * 100) / 100;
   buffer = "0";
 };
 

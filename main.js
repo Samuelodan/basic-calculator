@@ -48,6 +48,23 @@ function handleSymbols(symbol){
       screenElement.textContent = buffer;
       break;
     case "+/-":
+      if (runningTotal === 0 && buffer === "0"){
+        buffer = `${screenElement.textContent}`;
+        runningTotal = parseFloat(buffer);
+      }
+
+      if (buffer === "0"){
+        buffer = "-";
+        screenElement.textContent = buffer;
+        return
+      }
+      if (buffer.includes("-")){
+        buffer = buffer.substring(1);
+      } else {
+        buffer = `-${buffer}`;
+      }
+      screenElement.textContent = buffer;
+      console.log("+/- buffer", buffer);
       break;
     case ".":
       if (buffer.includes(".")){

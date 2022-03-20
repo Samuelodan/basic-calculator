@@ -53,10 +53,10 @@ function handleSymbols(symbol){
     case "-":
     case "×":
     case "÷":
-      // if (runningTotal === 0 && buffer === "0"){
-      //   buffer = `${screenElement.textContent}`;
-      //   runningTotal = parseInt(buffer);
-      // }
+      if (runningTotal === 0 && buffer === "0"){
+        buffer = `${screenElement.textContent}`;
+        runningTotal = parseInt(buffer);
+      }
       handleMath(symbol);
       //screenElement.textContent = buffer;
       break;

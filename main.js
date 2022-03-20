@@ -56,6 +56,9 @@ function handleSymbols(symbol){
       if (previousOperator === null){
         return;
       }
+      if (buffer === "0"){
+        return;
+      }
       operate(parseInt(buffer));
       previousOperator = null;
       buffer = runningTotal;

@@ -49,16 +49,22 @@ function handleSymbols(symbol){
       break;
     case "+/-":
       break;
+    case ".":
+      if (buffer.includes(".")){
+        return;
+      };
+      buffer += ".";
+      screenElement.textContent = buffer;
+      break;
     case "+":
     case "-":
     case "×":
     case "÷":
       if (runningTotal === 0 && buffer === "0"){
         buffer = `${screenElement.textContent}`;
-        runningTotal = parseInt(buffer);
+        runningTotal = parseFloat(buffer);
       }
       handleMath(symbol);
-      //screenElement.textContent = buffer;
       break;
     case "=":
       if (previousOperator === null){
@@ -67,7 +73,7 @@ function handleSymbols(symbol){
       if (buffer === "0"){
         return;
       }
-      operate(parseInt(buffer));
+      operate(parseFloat(buffer));
       previousOperator = null;
       buffer = runningTotal;
       screenElement.textContent = buffer;
@@ -84,7 +90,7 @@ function handleMath(symbol){
   };
   console.log("symbol", symbol);
 
-  const bufferInt = parseInt(buffer);
+  const bufferInt = parseFloat(buffer);
 
   if (runningTotal === 0){
     runningTotal = bufferInt;

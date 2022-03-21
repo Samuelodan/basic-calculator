@@ -69,14 +69,19 @@ body {
   color: white;
 }
 
-/* .numbers:hover,
+.numbers:hover,
 .decimal:hover {
   background-color: #babbbb;
   color: black;
 }
 .operator:hover {
-  background-color: ;
-} */
+  background-color: #eff0f0;
+  color: #004f4d;
+}
+.function:hover {
+  background-color: #2f3035;
+  color: #eff0f0;
+}
 
 .numbers:active,
 .decimal:active {

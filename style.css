@@ -64,16 +64,23 @@ body {
   background-color: #1f2024;
   color: white;
 }
-
-/* .numbers:active,
-.decimal:active {
-  background-color: black;
-  color: #79717a;
-} */
-
 .operator {
   background-color: #004f4d;
   color: white;
 }
+
+.numbers:active,
+.decimal:active {
+  background-color: black;
+  color: #79717a;
+}
+.operator:active {
+  background-color: #babbbb;
+}
+.function:active {
+  background-color: #505353;
+  color: white;
+}
+
 .function {
 }

@@ -19,7 +19,6 @@ function buttonClick(value){
   } else {
     handleNumbers(value);
   }
-  
 }
 
 function handleNumbers(numberString){
@@ -32,7 +31,6 @@ function handleNumbers(numberString){
     buffer += numberString;
   }
   screenElement.textContent = buffer;
-  console.log("buffer :", buffer);
 }
 
 function handleSymbols(symbol){
@@ -67,7 +65,6 @@ function handleSymbols(symbol){
         runningTotal = parseFloat(buffer);
       }
       screenElement.textContent = buffer;
-      console.log("+/- buffer", buffer);
       break;
     case ".":
       if (buffer.includes(".")){
@@ -104,24 +101,17 @@ function handleSymbols(symbol){
 }; 
 
 function handleMath(symbol){
-  
   if (buffer === "0"){
     return;
   };
-  console.log("symbol", symbol);
 
   const bufferInt = parseFloat(buffer);
-  console.log("handleMath bufferInt: ", bufferInt)
   if (runningTotal === 0){
     runningTotal = bufferInt;
   } else {
-    console.log("handleMath total before operate: ", runningTotal);
     operate(bufferInt);
   }
-  
   previousOperator = symbol;
-  console.log("HandleMath runningTotal:", runningTotal)
-  
   screenElement.textContent = Math.round(runningTotal * 100) / 100;
   buffer = "0";
 };
@@ -143,7 +133,6 @@ function operate(bufferInt) {
       runningTotal /= bufferInt;
       break;
   }
-  console.log("Operate runningTotal:", runningTotal)
 }
 
 

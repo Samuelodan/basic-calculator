@@ -50,7 +50,6 @@ function handleSymbols(symbol){
     case "+/-":
       if (runningTotal === 0 && buffer === "0"){
         buffer = `${screenElement.textContent}`;
-        runningTotal = parseFloat(buffer);
       }
 
       if (buffer === "0"){
@@ -62,6 +61,7 @@ function handleSymbols(symbol){
         buffer = buffer.substring(1);
       } else {
         buffer = `-${buffer}`;
+        runningTotal = parseFloat(buffer);
       }
       screenElement.textContent = buffer;
       console.log("+/- buffer", buffer);
@@ -108,10 +108,11 @@ function handleMath(symbol){
   console.log("symbol", symbol);
 
   const bufferInt = parseFloat(buffer);
-
+  console.log("handleMath bufferInt: ", bufferInt)
   if (runningTotal === 0){
     runningTotal = bufferInt;
   } else {
+    console.log("handleMath total before operate: ", runningTotal);
     operate(bufferInt);
   }
   

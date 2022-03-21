@@ -23,6 +23,9 @@ function buttonClick(value){
 }
 
 function handleNumbers(numberString){
+  if (buffer.length >= 8){
+    return;
+  };
   if (buffer === "0"){
     buffer = numberString;
   } else {

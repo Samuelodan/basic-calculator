@@ -69,17 +69,26 @@ body {
   color: white;
 }
 
+/* .numbers:hover,
+.decimal:hover {
+  background-color: #babbbb;
+  color: black;
+}
+.operator:hover {
+  background-color: ;
+} */
+
 .numbers:active,
 .decimal:active {
   background-color: black;
   color: #79717a;
 }
 .operator:active {
-  background-color: #babbbb;
+  background-color: #013635;
+  color: #79717a;
 }
 .function:active {
   background-color: #505353;
-  color: white;
 }
 
 .function {
